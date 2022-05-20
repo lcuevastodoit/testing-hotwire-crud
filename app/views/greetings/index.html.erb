@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<h1 class="text-success">Greetings</h1>
+<%= render "form", greeting:Greeting.new %>
+<br/>
+<div id="greetings" class="gap-2 w-100 justify-content-between">
+  <% @greetings.each do |greeting| %>
+    <%= render greeting %>
+    <p>
+      <%= link_to "Show this greeting", greeting, class: "m-1 btn btn-success btn-sm"  %>
+      <%= link_to "Edit this greeting", edit_greeting_path(greeting), class: "btn btn-sm btn-primary m-1" %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New greeting", new_greeting_path, class: "bg-opacity-75 bg-warning btn m-1" %>

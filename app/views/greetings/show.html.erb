@@ -1,0 +1,11 @@
+<p style="color: green"><%= notice %></p>
+
+
+<%= render "greeting", greeting: @greeting%>
+
+<div>
+  <%= link_to "Edit this greeting", edit_greeting_path(@greeting), class: "btn btn-sm btn-success m-1" %> |
+  <%= link_to "Back to greetings", greetings_path, class: "bg-info btn btn-sm m-1 text-white" %>
+
+  <%= button_to "Destroy this greeting", @greeting, method: :delete, class: "btn btn-danger btn-sm m-1"%>
+</div>
