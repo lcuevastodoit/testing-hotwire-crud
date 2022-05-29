@@ -6,7 +6,7 @@ require "rails/all"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module RailsRuby3
+module Rails7Ruby3
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
@@ -22,5 +22,14 @@ module RailsRuby3
     config.action_dispatch.default_headers = {
       'X-Frame-Options' => 'ALLOWFROM replit.com'
     }
+    redis = `ps -ax | grep [6]379 && echo $?`
+    unless redis.include? 'redis'
+      begin
+         system('redis-server --bind 127.0.0.1 &')
+         puts "redis server started"
+      rescue StandardError
+        true
+      end
+    end
   end
 end

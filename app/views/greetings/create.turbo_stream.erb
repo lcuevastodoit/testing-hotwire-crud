@@ -1,5 +1,7 @@
 <%= turbo_stream.prepend "greetings" do %>
   <%= render "greeting", greeting: @greeting %>
+    <%= link_to "Show this greeting", @greeting, class: "m-1 btn btn-success btn-sm"  %>
+      <%= link_to "Edit this greeting", edit_greeting_path(@greeting), class: "btn btn-sm btn-primary m-1" %>
 <% end %>
 
 <%= turbo_stream.replace "#{dom_id(Greeting.new)}_form" do %>

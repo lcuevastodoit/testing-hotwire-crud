@@ -5,5 +5,6 @@
         pkgs.rufo
         pkgs.sqlite
         pkgs.yarn
+        pkgs.redis
 	];
 }

@@ -1,11 +1,12 @@
-<div id="<%= dom_id greeting %>" class="list-group-item list-group-item-action gap-3 py-3">
-<div class="media">
-      <img src="<%= gravatarized_url(greeting.name) %>"
-          class="align-self-start mt-2">
+<div id="<%= "#{dom_id(greeting)}_item" %>" class="list-group-item list-group-item-action gap-3 py-3">
+  <%= turbo_frame_tag dom_id(greeting) do %>
+    <div class="media">
+      <img src="<%= gravatarized_url(greeting.name) %>" class="align-self-start mt-2">
       <div class="media-body">
-           <h5 class="mt-3"><%= greeting.name %></h5>
-           <%= simple_format(greeting.message) %>
+        <h5 class="mt-3"><%= link_to greeting.name, edit_greeting_path(greeting) %></h5>
+          <%= simple_format(greeting.message) %>
       </div>
-  </div>
-  <br/>
+    </div>    
+    <br/>    
+  <% end %>
 </div>
